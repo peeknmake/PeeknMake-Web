@@ -1,0 +1,75 @@
+<div class="container-fluid filterlist" [ngClass]="{'opened': filterlistToggle}">
+    <div class="row">
+        <div class="col-xs-6 col-sm-3">
+            <div id="accordion" class="panel panel-primary behclick-panel">
+                <button type="button" (click)="setMapView()" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                    <i class="material-icons">map</i>
+                    <span>Find on Map</span>
+                </button>
+                <div class="panel-body">
+                    <div class="panel-heading ">
+                        <h6 class="panel-title">I am ...</h6>
+                    </div>
+                    <div id="collapse0" class="panel-collapse collapse in">
+                        <ul class="list-group">
+                            <li class="list-group-item" *ngFor="let facet of  contenttypefacets">
+                                <div class="checkbox">
+                                    <input type="checkbox" value=""> {{facet.val}}
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="panel-heading ">
+                        <h6 class="panel-title"> Recipe has got ...</h6>
+                    </div>
+                    <div id="collapse0" class="panel-collapse collapse in">
+                        <ul class="list-group">
+                            <li class="list-group-item" *ngFor="let facet of  ingredientfacets">
+                                <div class="checkbox">
+                                    <input type="checkbox" value=""> {{facet.val}}
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="panel-heading ">
+                        <h6 class="panel-title">Recipie is from ..</h6>
+                    </div>
+                    <div id="collapse0" class="panel-collapse collapse in">
+                        <ul class="list-group">
+                            <li class="list-group-item" *ngFor="let facet of  locationfacets">
+                                <div class="checkbox">
+                                    <input type="checkbox" value=""> {{facet.val}}
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="panel-heading ">
+                        <h6 class="panel-title">Recipie in ...</h6>
+                    </div>
+                    <div id="collapse0" class="panel-collapse collapse in">
+                        <ul class="list-group">
+                            <li class="list-group-item" *ngFor="let facet of  languagefacets">
+                                <div class="checkbox">
+                                    <input type="checkbox" value=""> {{facet.val}}
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="panel-heading ">
+                        <h6 class="panel-title">Recipe is liked by ...</h6>
+                    </div>
+                    <div id="collapse0" class="panel-collapse collapse in">
+                        <ul class="list-group">
+                            <li class="list-group-item" *ngFor="let facet of  likefacets">
+                                <div class="checkbox">
+                                    <input type="checkbox" value=""> {{facet.val}}-{{facet.val+200}}
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

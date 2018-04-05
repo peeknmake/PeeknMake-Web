@@ -1,0 +1,15 @@
+<div class="main-player-block">
+  <div class="player-containter" *ngIf=showPlayer [ngClass]="{'minimized': minPlayer, 'super-minimized': superMinPlayer, 'player-fullscreen': fullscreenActive}">
+    <div class="player-view-controls">
+      <!-- <i class="material-icons" *ngIf="!minPlayer && !superMinPlayer && !fullscreenActive" (click)="togglePlayer()">arrow_drop_down</i>
+      <i class="material-icons" *ngIf="minPlayer && !superMinPlayer && !fullscreenActive" (click)="togglePlayer()">arrow_drop_up</i> -->
+      <i class="material-icons minimize" *ngIf="!superMinPlayer && !fullscreenActive" (click)="minimizePlayer()">remove</i>
+      <i class="material-icons close"  (click)="closePlayer()">close</i>
+    
+    </div>
+    <div class="main-yt-player-block">
+      <i class="material-icons" *ngIf="superMinPlayer" (click)="minimizePlayer()">zoom_out_map</i>
+      <div id="yt-player"></div>
+    </div>
+  </div>
+</div>

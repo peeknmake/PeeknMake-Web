@@ -1,0 +1,12 @@
+<form [formGroup]="searchForm" (ngSubmit)="doSearch()">
+    <div class="mdl-textfield mdl-js-textfield" style="width: 80%;">
+        <input class="mdl-textfield__input" (change)="selectedenvent()" list="browsers" #queryinput (keyup)="suggest(queryinput.value)"
+            formControlName="query" type="text" id="query" autocomplete="off" />
+        <button type="submit" class="mdl-button mdl-js-button mdl-button--icon">
+            <i class="material-icons">search</i>
+        </button>
+        <datalist id="browsers">
+            <option *ngFor="let item of items" value={{item}}></option>
+        </datalist>
+    </div>
+</form>

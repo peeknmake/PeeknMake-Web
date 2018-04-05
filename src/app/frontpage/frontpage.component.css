@@ -1,0 +1,115 @@
+
+
+.search {
+  width: 100%;
+  position: relative
+}
+
+.searchTerm {
+  float: left;
+  width: 100%;
+  /* border: 1px solid rgb(0, 0, 0);; */
+  padding: 3px;
+  height: 42px;
+  /* border-radius: 5px; */
+  outline: none;
+  /* color: #9DBFAF; */
+  font-size: 15px;
+}
+
+.searchButton {
+  position: absolute;  
+  right: -50px;
+    width: 60px;
+    height: 52px;
+  /* border: 1px solid rgb(98, 98, 100); */
+  background: rgb(255, 255, 255);
+  text-align: center;
+  color: rgb(54, 54, 54);
+  /* border-radius: 5px; */
+  cursor: pointer;
+  font-size: 20px;
+}
+.frontpage{
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+    background: url('../../assets/mainpic.png')  no-repeat center;
+}
+/*Resize the wrap to see the search bar change!*/
+.wrap-middle{
+      height: 50px;
+    width:50%;
+  position: absolute;
+   top: 35%;
+  left: 20%;
+  /*transform: translate(-50%, -50%); */
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+
+.wrap-lower{
+    height: 50px;
+    max-height:25%;
+  width:80%;
+position: absolute;
+ top: 65%;
+left: 10%;
+/*transform: translate(-50%, -50%); */
+/* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+.suggestion-dropdown {
+    padding-left: 5px;
+  position: relative;
+  background-color: white;
+  display: inline-block;
+}
+
+.suggestion-dropdown-content {
+
+  float: left;
+  width: 99%;
+  padding: 1px;
+  display: none;
+  position: absolute;
+  /* background-color: #e7e3e3; */
+  min-width: 160px;
+  overflow: auto;
+  transform: translate(0, 52px); 
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  list-style-type:none
+}
+
+.suggestion-dropdown-content li {
+  color: black;
+  padding: 2px 2px;
+  text-decoration: none;
+  display: block;
+}
+
+.suggestion-dropdown ul{
+    -webkit-padding-start: 5px; 
+}
+.suggestion-dropdown li:hover {background-color: rgb(247, 242, 242)}
+
+.suggestion-show {display:block;}
+
+.sns-search-options {
+    min-height: 24px;
+    height: 20%;
+}
+
+.topLinks{
+    color : black;
+}
+
+.sns-search-type {
+    display: inline
+}

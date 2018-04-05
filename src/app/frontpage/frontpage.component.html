@@ -1,0 +1,51 @@
+<div class="frontpage mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <div class="topLinks" style="padding:10px">
+        <app-search-configuration></app-search-configuration>
+        <app-user-information></app-user-information>
+    </div>
+
+    <div class="wrap-middle">
+        <form [formGroup]="searchForm" (ngSubmit)="gotoSearch()">
+            <div id="search" class="search">
+                <div class="sns-search-options">
+                    <div *ngIf="showSuggestDropDown">
+                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+                            <input type="radio" class="mdl-radio__button" name="options">
+                            <span class="mdl-radio__label">Ingredients</span>
+                        </label>
+                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+                            <input type="radio" class="mdl-radio__button" name="options" checked>
+                            <span class="mdl-radio__label">Recipe</span>
+                        </label>
+                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+                            <input type="radio" class="mdl-radio__button" name="options">
+                            <span class="mdl-radio__label">Advanced</span>
+                        </label>
+                    </div>
+                </div>
+                <div (click)="onSearchInputClick()">
+                    <input type="text" class="searchTerm" #queryinput list="browsers" (keyup)="suggest(queryinput.value)" formControlName="query"
+                        placeholder="search your recipe" />
+                    <button type="submit" class="searchButton">
+                        <i class="material-icons">search</i>
+                    </button>
+                </div>
+                <div *ngIf="showSuggestDropDown">
+                    <div id="myDropdown" class="suggestion-dropdown suggestion-dropdown-content suggestion-show">
+                        <ul>
+                            <li *ngFor="let item of items" (click)="searchItemSelected(item)">
+                                <div class="">{{item}}</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+        <app-user-accounts></app-user-accounts>
+    </div>
+
+    <div class="wrap-lower">
+        --
+    </div>
+</div>
