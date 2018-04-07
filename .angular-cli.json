@@ -1,7 +1,7 @@
 {
   "project": {
     "version": "1.0.0-beta.28.3",
-    "name": "recipie-player"
+    "name": "Peek n Make"
   },
   "apps": [
     {
@@ -19,7 +19,7 @@
       "prefix": "app",
           "mobile": false,
       "styles": [
-        "styles.css"
+        "styles.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

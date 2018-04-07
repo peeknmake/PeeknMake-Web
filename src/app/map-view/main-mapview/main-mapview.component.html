@@ -8,6 +8,19 @@
         </div>
 
         <div class="map-container mdl-layout__content">
+            <div class="map-videos">
+                <div class='sns-map-search'>
+                    <input type="text" id="fname" name="fname" placeholder="search recipes ..">
+                </div>
+                <mat-tab-group>
+                    <mat-tab label="Browse">
+                        <div class="map-video" *ngFor="let video of mapVideos">
+                            <app-h-video [video]="video"></app-h-video>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Filter">filters go here</mat-tab>
+                </mat-tab-group>
+            </div>
             <div class="map">
                 <agm-map [latitude]="lat" [longitude]="lng" [minZoom]="minZoom" [maxZoom]="maxZoom" [zoom]="zoom" [styles]="mainMapStyles"
                     (mapClick)="mapClicked($event)">
@@ -21,20 +34,6 @@
                         (radiusChange)="circleRadChanged($event)" [editable]="true">
                     </agm-circle>
                 </agm-map>
-            </div>
-            <div class="map-videos">
-                <div class='sns-map-search'>
-                    <input type="text" id="fname"  #searchinmap list="browsers" (keyup)="searchMap(searchinmap.value)" name="fname" placeholder="search recipes ..">
-                </div>
-                <mat-tab-group>
-                    <mat-tab label="Browse">
-                        <div class="map-video" *ngFor="let video of mapVideos">
-                            <app-h-video [video]="video"></app-h-video>
-                        </div>
-                    </mat-tab>
-                    <mat-tab label="Filter">filters go here</mat-tab>
-                </mat-tab-group>
-
             </div>
             <div class="map-footer"></div>
         </div>
