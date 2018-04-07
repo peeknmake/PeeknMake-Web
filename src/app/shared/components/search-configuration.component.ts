@@ -8,10 +8,6 @@ import { Router} from '@angular/router';
         <i class="material-icons">help</i>
         <span>about</span>
     </button>
-    <button type="button" (click)="setShowconfig()" class="mdl-button mdl-js-button mdl-js-ripple-effect">
-        <i class="material-icons">settings</i>
-        <span>set Preferene</span>
-    </button>
     <button type="button" (click)="setMapView()" class="mdl-button mdl-js-button mdl-js-ripple-effect">
     <i class="material-icons">map</i>
         <span>Explore Cuisines</span>
@@ -24,11 +20,6 @@ export class SearchConfigurationComponent implements OnInit {
     constructor(private router:Router) { }
 
     ngOnInit() {
-    }
-    public setShowconfig() {
-        console.log(" changing the showConfig value");
-        this.showConfig = true;
-        this.router.navigate(['/shell/pref']);
     }
     public goToAboutPage() {
         this.router.navigate(['/shell/about']);

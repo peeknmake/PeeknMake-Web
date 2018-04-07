@@ -14,7 +14,6 @@ import { MapServiceService } from './map-service.service';
 @NgModule({
     imports: [
         CommonModule,
-        // MdlModule,
         MatTabsModule,
         SharedModule,
         MapViewRoutingModule,

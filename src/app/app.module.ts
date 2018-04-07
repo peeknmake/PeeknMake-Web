@@ -2,11 +2,12 @@ import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule, JsonpModule, URLSearchParams } from "@angular/http";
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/modules/shared.module';
-import { MatToolbarModule, MatRadioModule } from '@angular/material';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule, MatRadioModule, MatSidenavModule,MatListModule,MatIconModule } from '@angular/material';
 
 // Components
 import { AppComponent } from "./app.component";
@@ -36,17 +37,19 @@ import { VideoViewsPipe } from "./shared/pipes/video-views.pipe";
 import { PlaylistItemNamePipe } from "./shared/pipes/playlist-item-name.pipe";
 import { LazyScroll } from "./shared/directives/lazy-scroll/lazy-scroll.directive";
 import { ShellComponent } from './shell.component';
+import { SearchComponent } from './search.component';
 
 @NgModule({
     imports: [
         BrowserModule,
         HttpModule,
-        ReactiveFormsModule,
+        ReactiveFormsModule, FormsModule,
         JsonpModule,
         YoutubePlayerModule,
         BrowserAnimationsModule,
         AppRoutingModule,
-        MatToolbarModule, MatRadioModule,
+        LayoutModule,
+        MatToolbarModule, MatRadioModule, MatSidenavModule,MatListModule,MatIconModule,
         SharedModule,
     ],
     declarations: [
@@ -66,6 +69,7 @@ import { ShellComponent } from './shell.component';
         SolrSearchComponent,
         FrontpageComponent,
         ShellComponent,
+        SearchComponent,
 
     ],
     bootstrap: [

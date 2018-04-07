@@ -7,12 +7,14 @@ import { LoginCallbackComponent } from './shared/components/login-callback.compo
 import { UserPreferenceModule } from './user-preference/user-preference.module';
 import { MapViewModule } from './map-view/map-view.module';
 import { ShellComponent } from './shell.component';
+import { SearchComponent } from './search.component';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: '/frontpage', pathMatch: 'full' },
     { path: 'frontpage', component: FrontpageComponent },
     { path: 'search', component: MainComponent },
     { path: 'loginCallback', component: LoginCallbackComponent },
+    { path: 'sample', component: SearchComponent },
     {
         path: 'shell',
         component: ShellComponent,

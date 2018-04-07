@@ -9,11 +9,9 @@
             <div id="search" class="search">
                 <div class="sns-search-options">
                     <div *ngIf="showSuggestDropDown">
-                        <mat-radio-group>
-                            <mat-radio-button value="1">Ingredients</mat-radio-button>
-                            <mat-radio-button value="2">Recipe</mat-radio-button>
-                            <mat-radio-button value="3">Advanced</mat-radio-button>
-                          </mat-radio-group>
+                        <mat-radio-group [(ngModel)]="searchType" [ngModelOptions]="{standalone: true}">
+                            <mat-radio-button *ngFor="let type of searchtypes" [value]="type">{{type}}</mat-radio-button>
+                        </mat-radio-group>
                     </div>
                 </div>
                 <div (click)="onSearchInputClick()">

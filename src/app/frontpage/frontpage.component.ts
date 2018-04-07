@@ -21,8 +21,8 @@ export class FrontpageComponent {
     private items: string[];
     public showSuggestDropDown = false;
     public searchForm = this.fb.group({ query: ["", Validators.required] });
-    public searchtype : number;
-    private searchtypes = ['ingredients', 'recipe titles', 'Advanced'];
+    public searchType : string;
+    private searchtypes = ['Ingredients', 'Recipe', 'Advanced'];
     private _suggestTimeout = null;
 
     constructor(public fb: FormBuilder,
