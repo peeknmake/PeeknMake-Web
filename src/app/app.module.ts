@@ -6,7 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/modules/shared.module';
-
+import { MatToolbarModule, MatRadioModule } from '@angular/material';
 
 // Components
 import { AppComponent } from "./app.component";
@@ -46,7 +46,8 @@ import { ShellComponent } from './shell.component';
         YoutubePlayerModule,
         BrowserAnimationsModule,
         AppRoutingModule,
-        SharedModule
+        MatToolbarModule, MatRadioModule,
+        SharedModule,
     ],
     declarations: [
         AppComponent,

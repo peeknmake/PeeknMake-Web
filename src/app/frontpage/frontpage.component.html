@@ -9,18 +9,11 @@
             <div id="search" class="search">
                 <div class="sns-search-options">
                     <div *ngIf="showSuggestDropDown">
-                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
-                            <input type="radio" class="mdl-radio__button" name="options">
-                            <span class="mdl-radio__label">Ingredients</span>
-                        </label>
-                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
-                            <input type="radio" class="mdl-radio__button" name="options" checked>
-                            <span class="mdl-radio__label">Recipe</span>
-                        </label>
-                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
-                            <input type="radio" class="mdl-radio__button" name="options">
-                            <span class="mdl-radio__label">Advanced</span>
-                        </label>
+                        <mat-radio-group>
+                            <mat-radio-button value="1">Ingredients</mat-radio-button>
+                            <mat-radio-button value="2">Recipe</mat-radio-button>
+                            <mat-radio-button value="3">Advanced</mat-radio-button>
+                          </mat-radio-group>
                     </div>
                 </div>
                 <div (click)="onSearchInputClick()">
