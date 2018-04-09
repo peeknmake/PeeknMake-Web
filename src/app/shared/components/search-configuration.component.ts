@@ -25,7 +25,7 @@ export class SearchConfigurationComponent implements OnInit {
         this.router.navigate(['/shell/about']);
     }
     public setMapView(){
-        this.router.navigate(['/mapview']);
+        this.router.navigate(['/search/mapview']);
     }
 
 }

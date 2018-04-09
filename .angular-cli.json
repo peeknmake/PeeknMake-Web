@@ -19,7 +19,8 @@
       "prefix": "app",
           "mobile": false,
       "styles": [
-        "styles.scss"
+        "styles.scss",
+        "peeknmaketheme.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

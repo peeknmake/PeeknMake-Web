@@ -1,14 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import './peeknmaketheme.scss';
 
 .shell-header{
     background-color: rgb(204, 204, 204);
     font-family:cursive;
     height:60px;
   }
-.sns-go-home{
-    display: inline-block;
-    width: 20%
+// .sns-go-home{
+//     display: inline-block;
+//     width: 20%
+// }
+
+.hearder-item{
+    cursor: pointer;
+    padding: 0 14px;
+    background-color: #BDBDBD;
 }
 .sns-go-home:hover{
     cursor: pointer;

@@ -8,6 +8,8 @@ import { UserPreferenceModule } from './user-preference/user-preference.module';
 import { MapViewModule } from './map-view/map-view.module';
 import { ShellComponent } from './shell.component';
 import { SearchComponent } from './search.component';
+import { FilterComponent } from './main/filter/filter.component';
+import { ProxyComponent } from './proxy.component';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: '/frontpage', pathMatch: 'full' },
@@ -24,6 +26,22 @@ const appRoutes: Routes = [
         }, {
             path: 'pref',
             loadChildren: './user-preference/user-preference.module#UserPreferenceModule'
+        }]
+    },
+    {
+        path: 'search',
+        component: SearchComponent,
+        children: [
+        {
+            path: 'mapview',
+            // outlet: 'contents',
+            // component: ProxyComponent,
+            // children: [
+            //     {
+            //         path: 'map',
+                    loadChildren: './map-view/map-view.module#MapViewModule',
+            //     },
+            // ]
         }]
     },
     { path: 'mapview', loadChildren: './map-view/map-view.module#MapViewModule' },

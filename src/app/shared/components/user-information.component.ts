@@ -5,12 +5,28 @@ import { User } from '../Helper/user'
 @Component({
     selector: 'app-user-information',
     template: `
-    <div (click)="signInAction()" style="padding-right:25px;float:right">
-    <span class="mdl-chip mdl-chip--contact">
-        <img class="mdl-chip__contact" src={{user.pictureLink}}>
-        <span class="mdl-chip__text">{{user.userName}}</span>
-    </span>
+    <div style="padding-right:25px;float:right">
+    <button mat-fab [matMenuTriggerFor]="usrmenu"  >
+        <!--span class="mdl-chip mdl-chip--contact" -->
+            <img class="mdl-chip__contact" src={{user.pictureLink}}>
+            <span class="mdl-chip__text">{{user.userName}}</span>
+        <!--/span-->
+    </button>
     </div>
+    <mat-menu #usrmenu="matMenu" [overlapTrigger]="false">
+        <button mat-menu-item>
+            <mat-icon>dialpad</mat-icon>
+            <span>Redial</span>
+        </button>
+        <button mat-menu-item disabled>
+            <mat-icon>voicemail</mat-icon>
+            <span>Check voicemail</span>
+        </button>
+        <button mat-menu-item>
+            <mat-icon>notifications_off</mat-icon>
+            <span>Disable alerts</span>
+        </button>
+    </mat-menu>
     `,
     styles: ['.mdl-chip__contact{ max-height: 50px }',
         '.mdl-chip:hover { cursor: pointer }']

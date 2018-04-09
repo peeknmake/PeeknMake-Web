@@ -1,41 +1,29 @@
 <div mdl-shadow="2">
-    <div mdl-layout-fixed-header mdl-layout-header-seamed>
-        <div class="map-view-header">
-            <div class="mdl-layout__header-row">
-                <app-go-home-component class="sns-go-home"></app-go-home-component>
-                <app-user-information></app-user-information>
-            </div>
+    <div class="map-container mdl-layout__content">
+        <div class="map-videos">
+            <mat-tab-group>
+                <mat-tab label="Browse">
+                    <div class="map-video" *ngFor="let video of mapVideos">
+                        <app-h-video [video]="video"></app-h-video>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Filter">filters go here</mat-tab>
+            </mat-tab-group>
         </div>
-
-        <div class="map-container mdl-layout__content">
-            <div class="map-videos">
-                <div class='sns-map-search'>
-                    <input type="text" id="fname" name="fname" placeholder="search recipes ..">
-                </div>
-                <mat-tab-group>
-                    <mat-tab label="Browse">
-                        <div class="map-video" *ngFor="let video of mapVideos">
-                            <app-h-video [video]="video"></app-h-video>
-                        </div>
-                    </mat-tab>
-                    <mat-tab label="Filter">filters go here</mat-tab>
-                </mat-tab-group>
-            </div>
-            <div class="map">
-                <agm-map [latitude]="lat" [longitude]="lng" [minZoom]="minZoom" [maxZoom]="maxZoom" [zoom]="zoom" [styles]="mainMapStyles"
-                    (mapClick)="mapClicked($event)">
-                    <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m.label, i)" [latitude]="m.lat" [longitude]="m.lng"
-                        [label]="m.label" [markerDraggable]="m.draggable" (dragEnd)="markerDragEnd(m, $event)">
-                        <agm-info-window>
-                            <strong>InfoWindow content</strong>
-                        </agm-info-window>
-                    </agm-marker>
-                    <agm-circle [latitude]="lat" [longitude]="lng" [radius]="200000" [fillColor]="'grey'" [circleDraggable]="true" (centerChange)="circleCenterChanged($event)"
-                        (radiusChange)="circleRadChanged($event)" [editable]="true">
-                    </agm-circle>
-                </agm-map>
-            </div>
-            <div class="map-footer"></div>
+        <div class="map">
+            <agm-map [latitude]="lat" [longitude]="lng" [minZoom]="minZoom" [maxZoom]="maxZoom" [zoom]="zoom" [styles]="mainMapStyles"
+                (mapClick)="mapClicked($event)">
+                <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m.label, i)" [latitude]="m.lat" [longitude]="m.lng"
+                    [label]="m.label" [markerDraggable]="m.draggable" (dragEnd)="markerDragEnd(m, $event)">
+                    <agm-info-window>
+                        <strong>InfoWindow content</strong>
+                    </agm-info-window>
+                </agm-marker>
+                <agm-circle [latitude]="lat" [longitude]="lng" [radius]="200000" [fillColor]="'grey'" [circleDraggable]="true" (centerChange)="circleCenterChanged($event)"
+                    (radiusChange)="circleRadChanged($event)" [editable]="true">
+                </agm-circle>
+            </agm-map>
         </div>
+        <div class="map-footer"></div>
     </div>
 </div>

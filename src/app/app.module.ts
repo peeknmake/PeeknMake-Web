@@ -6,8 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/modules/shared.module';
+import { MatModuleModule } from './shared/modules/mat-module.module';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatRadioModule, MatSidenavModule,MatListModule,MatIconModule } from '@angular/material';
 
 // Components
 import { AppComponent } from "./app.component";
@@ -38,6 +38,7 @@ import { PlaylistItemNamePipe } from "./shared/pipes/playlist-item-name.pipe";
 import { LazyScroll } from "./shared/directives/lazy-scroll/lazy-scroll.directive";
 import { ShellComponent } from './shell.component';
 import { SearchComponent } from './search.component';
+import { ProxyComponent } from './proxy.component';
 
 @NgModule({
     imports: [
@@ -49,7 +50,7 @@ import { SearchComponent } from './search.component';
         BrowserAnimationsModule,
         AppRoutingModule,
         LayoutModule,
-        MatToolbarModule, MatRadioModule, MatSidenavModule,MatListModule,MatIconModule,
+        MatModuleModule,
         SharedModule,
     ],
     declarations: [
@@ -70,6 +71,7 @@ import { SearchComponent } from './search.component';
         FrontpageComponent,
         ShellComponent,
         SearchComponent,
+        ProxyComponent,
 
     ],
     bootstrap: [

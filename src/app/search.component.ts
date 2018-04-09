@@ -7,9 +7,9 @@ import { ChangeDetectorRef, Component } from '@angular/core';
   <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" >
   <mat-toolbar color="primary" class="example-toolbar">
   <mat-toolbar-row>
-    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-    <app-go-home-component class="sns-go-home"></app-go-home-component>
-    <nav class="mdl-navigation" style="width: 70%;">
+    <!--button class="hearder-item" mat-icon-button (click)="snav.toggle()"><mat-icon >menu</mat-icon></button-->
+    <app-go-home-component class="hearder-item"></app-go-home-component>
+    <nav class="hearder-item" style="width: 70%;">
         <solr-search #search (videosUpdated)="handleSearchVideo($event)" [loadingInProgress]="loadingInProgress" style="width: 100%;"></solr-search>
     </nav>
     <span class="header-spacer"></span>
@@ -21,14 +21,8 @@ import { ChangeDetectorRef, Component } from '@angular/core';
                          [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav class="sidenavbox" #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
                  [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
-    <mat-nav-list>
-        <a mat-list-item routerLink="." *ngFor="let nav of fillerNav">{{nav}}</a>
-    </mat-nav-list>
     </mat-sidenav>
-
-    <mat-sidenav-content>
-      <p *ngFor="let content of fillerContent">{{content}}</p>
-    </mat-sidenav-content>
+    <router-outlet></router-outlet> 
   </mat-sidenav-container>
 </div>
   `,

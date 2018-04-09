@@ -5,24 +5,26 @@ import { SearchConfigurationComponent } from '../components/search-configuration
 import { UserAccountsComponent } from '../components/user-accounts.component';
 import { UserInformationComponent } from '../components/user-information.component';
 import { LoginCallbackComponent } from '../components/login-callback.component';
+import { MatModuleModule } from './mat-module.module';
 
 @NgModule({
     imports: [
-        CommonModule
+        CommonModule,
+        MatModuleModule
     ],
     declarations: [
         GoHomeComponent,
         SearchConfigurationComponent,
         UserAccountsComponent,
         UserInformationComponent,
-		LoginCallbackComponent
+        LoginCallbackComponent
     ],
     exports: [
         GoHomeComponent,
         SearchConfigurationComponent,
         UserAccountsComponent,
         UserInformationComponent,
-		LoginCallbackComponent
+        LoginCallbackComponent
     ]
 })
 export class SharedModule { }
