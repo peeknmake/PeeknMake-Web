@@ -7,7 +7,7 @@ import {MatMenuTrigger } from '@angular/material'
 @Component({
     selector: 'app-user-information',
     template: `
-    <div  [matMenuTriggerFor]="usrmenu" style="padding-right:25px;float:right">
+    <div  [matMenuTriggerFor]="usrmenu" style="padding-right:25px;float:right" on-mouseover="trigger.openMenu()">
         <span class="mdl-chip mdl-chip--contact" >
             <img class="mdl-chip__contact" src={{user.pictureLink}}>
             <span class="mdl-chip__text">{{user.userName}}</span>
@@ -38,11 +38,12 @@ export class UserInformationComponent implements OnInit {
     @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
 
     constructor(private authService: AuthService,private router:Router) {
-        this.user = this.authService.loggedUser;
         this.authService.userChangeEvent.subscribe(user => {
             this.user = user;
             this.isLoggedin = (user.userName == "Guest") ? false : true;
         });
+        this.user = this.authService.loggedUser;
+        this.isLoggedin = this.authService.loggedIn;
     }
 
     public showUsrMenu(){

@@ -4,27 +4,27 @@ import { ChangeDetectorRef, Component } from '@angular/core';
 @Component({
     selector: 'app-search',
     template: `
-  <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" >
-  <mat-toolbar color="primary" class="example-toolbar">
-  <mat-toolbar-row>
-    <!--button class="hearder-item" mat-icon-button (click)="snav.toggle()"><mat-icon >menu</mat-icon></button-->
-    <app-go-home-component class="hearder-item"></app-go-home-component>
-    <nav class="hearder-item" style="width: 70%;">
-        <solr-search #search (videosUpdated)="handleSearchVideo($event)" [loadingInProgress]="loadingInProgress" style="width: 100%;"></solr-search>
-    </nav>
-    <span class="header-spacer"></span>
-    <app-user-information></app-user-information>
-    </mat-toolbar-row>
-  </mat-toolbar>
+        <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" >
+        <mat-toolbar color="primary" class="example-toolbar">
+        <mat-toolbar-row>
+            <!--button class="hearder-item" mat-icon-button (click)="snav.toggle()"><mat-icon >menu</mat-icon></button-->
+            <app-go-home-component class="hearder-item"></app-go-home-component>
+            <nav class="hearder-item" style="width: 70%;">
+                <solr-search #search  style="width: 100%;"></solr-search>
+            </nav>
+            <span class="header-spacer"></span>
+            <app-user-information></app-user-information>
+            </mat-toolbar-row>
+        </mat-toolbar>
 
-  <mat-sidenav-container class="example-sidenav-container"
-                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-    <mat-sidenav class="sidenavbox" #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
-                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
-    </mat-sidenav>
-    <router-outlet></router-outlet> 
-  </mat-sidenav-container>
-</div>
+        <mat-sidenav-container class="example-sidenav-container"
+                                [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+            <mat-sidenav class="sidenavbox" #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                        [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+            </mat-sidenav>
+            <router-outlet></router-outlet> 
+        </mat-sidenav-container>
+        </div>
   `,
     styles: []
 })
