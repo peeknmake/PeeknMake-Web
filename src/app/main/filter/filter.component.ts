@@ -42,6 +42,6 @@ export class FilterComponent implements OnInit {
         this.selectedVideo = video;
     }
     public setMapView(){
-        this.router.navigate(['/mapview']);
+        this.router.navigate(['/search/mapview']);
     }
 }
