@@ -5,9 +5,9 @@ module.exports = Object.freeze({
     // SOLR_URI : (process.env.NODE_ENV == 'DEV') ? 'http://10.0.0.106:8983/solr/foodx' :'http://ec2-34-209-114-162.us-west-2.compute.amazonaws.com:8983/solr/foodx',
     // SOLR_LOC_URI : (process.env.NODE_ENV == 'DEV') ? 'http://10.0.0.106:8983/solr/location' :'http://ec2-34-209-114-162.us-west-2.compute.amazonaws.com:8983/solr/location',
     SOLR_URI: (process.env.NODE_ENV == 'DEV') ?
-        'http://10.0.0.106:8983/solr/foodx' : 'http://haircuit.com:8983/solr/foodx',
+        'http://10.0.0.106:8983/solr/foodx' : 'http://206.189.71.70:8983/solr/foodx',
     SOLR_LOC_URI: (process.env.NODE_ENV == 'DEV') ?
-        'http://10.0.0.106:8983/solr/location' : 'http://haircuit.com:8983/solr/location',
+        'http://10.0.0.106:8983/solr/location' : 'http://206.189.71.70:8983/solr/location',
     MAX_COUNT: 50,
     LOGLVEL: 'info',
     WORKING_DIR: '/Users/bhabanidas/Work/DATA/foodxdata',
