@@ -26,7 +26,7 @@ app.get('*', (req, res) => {
 });
 
 app.use((error,req,res,next)=>{
-    res.status(err.status||500);
+    res.status(error.status||500);
     res.json({
         error:{
             message:error.message
