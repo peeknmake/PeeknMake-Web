@@ -1,7 +1,8 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpModule, JsonpModule, URLSearchParams } from "@angular/http";
+// import { HttpModule, JsonpModule, URLSearchParams } from "@angular/http";
+import { HttpClientModule , HttpClientJsonpModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,7 +18,7 @@ import { VideosPlaylistComponent } from "./main/videos-playlist/videos-playlist.
 import { VideoPlayerComponent } from "./main/video-player/video-player.component";
 import { FilterComponent } from "./main/filter/filter.component";
 import { SolrSearchComponent } from "./main/solr-search/solr-search.component";
-import { YoutubePlayerModule } from 'ng2-youtube-player';
+import { YoutubePlayerModule } from 'ngx-youtube-player';
 import { PageNotFoundComponent } from './shared/components/not-found.component';
 import { FrontpageComponent } from './frontpage/frontpage.component';
 
@@ -43,9 +44,8 @@ import { ProxyComponent } from './proxy.component';
 @NgModule({
     imports: [
         BrowserModule,
-        HttpModule,
+        HttpClientModule,HttpClientJsonpModule,
         ReactiveFormsModule, FormsModule,
-        JsonpModule,
         YoutubePlayerModule,
         BrowserAnimationsModule,
         AppRoutingModule,

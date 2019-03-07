@@ -4,7 +4,7 @@ import { YoutubeApiService } from "../../shared/services/youtube-api.service";
 import { YoutubePlayerService } from "../../shared/services/youtube-player.service";
 import { NotificationService } from '../../shared/services/notification.service';
 import { IndexDataService } from '../../shared/services/indexDataService';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { SearchObject } from '../../shared/Helper/searchObject';
 import { FacetService } from '../../shared/services/facetService';
 

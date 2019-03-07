@@ -1,9 +1,9 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { Component } from '@angular/core';
 import { NotificationService } from './notification.service';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
-import { } from '@types/youtube';
+// import { } from '@types/youtube';
 
 @Injectable()
 export class YoutubePlayerService {
