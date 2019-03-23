@@ -35,7 +35,7 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center; 
-    background: url('../../assets/mainpic.png')  no-repeat center;
+    background: url('../../assets/mainpic.jpg')  no-repeat center;
 }
 /*Resize the wrap to see the search bar change!*/
 .wrap-middle{

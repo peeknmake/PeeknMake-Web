@@ -11,6 +11,11 @@ const morgan = require('morgan');
 const api = require('./server/routes/api');
 const app = express();
 
+/**
+ * compress all responses
+ */
+app.use(compression())
+
 // Parsers for POST data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -20,11 +25,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
  */
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use(morgan('dev'));
-
-/**
- * compress all responses
- */
-app.use(compression())
 
 /**
  * Set our api routes
