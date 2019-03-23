@@ -1,6 +1,7 @@
 // Get dependencies
 const express = require('express');
 const path = require('path');
+const compression = require('compression')
 const http = require('http');
 const bodyParser = require('body-parser');
 const db = require('./server/services/mongo');
@@ -14,10 +15,20 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// Point static path to dist
+/** 
+ * Point static path to dist
+ */
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use(morgan('dev'));
-// Set our api routes
+
+/**
+ * compress all responses
+ */
+app.use(compression())
+
+/**
+ * Set our api routes
+*/ 
 app.use('/api', api);
 
 // Catch all other routes and return the index file
