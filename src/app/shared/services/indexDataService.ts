@@ -26,11 +26,12 @@ export class IndexDataService {
 
     suggest(term: string) {
         let solrUrl = '/api/suggest'
-        let params = new HttpParams();
-        params.set('suggest', 'true');
-        // params.set('suggest.build', 'true');
-        params.set('wt', 'json');
-        params.set('suggest.q', term);
+        let params = {
+            'suggest': 'true',
+            // 'suggest.build', 'true',
+            'wt': 'json',
+            'suggest.q': term
+        }
         return this.http
             .get(solrUrl, { params: params })
             .pipe(map((jsonRes) => {
@@ -46,10 +47,11 @@ export class IndexDataService {
 
     searchByLocation(lat: number, lan: number, rad: number): Promise<any> {
         let solrUrl = '/api/videoincircle';
-        let params = new HttpParams();
-        params.set('lat', String(lat));
-        params.set('lan', String(lan));
-        params.set('rad', String(rad));
+        let params = {
+            'lat': String(lat),
+            'lan': String(lan),
+            'rad': String(rad)
+        }
         return this.http
             .get(solrUrl, { params: params })
             .pipe(map((jsonRes) => {
@@ -59,13 +61,14 @@ export class IndexDataService {
     }
     searchStateVideos(srchObj: SearchObject): Promise<any> {
         let solrUrl = '/api/select';
-        let params = new HttpParams();
-        params.set('wt', 'json');
-        params.set('rows', '' + srchObj.noOfRow);
-        params.set('q', 'recipe');
-        params.set('fq', srchObj.searchTerm);
-        params.set('fl', 'youtubevideoID');
-        params.set('start', '' + srchObj.pageNum * srchObj.noOfRow);
+        let params = {
+            'wt': 'json'
+            , 'rows': '' + srchObj.noOfRow
+            , 'q': 'recipe'
+            , 'fq': srchObj.searchTerm
+            , 'fl': 'youtubevideoID'
+            , 'start': '' + srchObj.pageNum * srchObj.noOfRow
+        }
         console.log('going to search for ');
         console.log(srchObj)
         return this.http
@@ -84,17 +87,17 @@ export class IndexDataService {
     }
     searchVideos(srchObj: SearchObject): Promise<any> {
         let solrUrl = '/api/select';
-        let params = new HttpParams();
-        params.set('wt', 'json');
-        params.set('rows', '' + srchObj.noOfRow);
-        params.set('q', srchObj.getRecipeTitlefuzzySearchTerm());
-        // params.set('fq', args.searchTerm);
-        params.set('fl', 'youtubevideoID');
-        params.set('start', '' + srchObj.pageNum * srchObj.noOfRow);
-        params.set('json.facet', '{contenttype: { terms: { field: food_Content } },' +
-            'Recipelocation: { terms: { field: video_country } },' +
-            'Ingredients: { terms: { field: ingredients } },' + 'Language: { terms: { field: video_langugages } },' +
-            'likes: { range: { field: likes, start: 0, end: 1000, gap: 200 } }}')
+        let params = {
+            'wt': 'json'
+            , 'rows': '' + srchObj.noOfRow
+            , 'q': srchObj.getRecipeTitlefuzzySearchTerm()
+            , 'fl': 'youtubevideoID'
+            , 'start': '' + srchObj.pageNum * srchObj.noOfRow
+            , 'json.facet': '{contenttype: { terms: { field: food_Content } },' +
+                'Recipelocation: { terms: { field: video_country } },' +
+                'Ingredients: { terms: { field: ingredients } },' + 'Language: { terms: { field: video_langugages } },' +
+                'likes: { range: { field: likes, start: 0, end: 1000, gap: 200 } }}'
+        }
         console.log('going to search for ');
         console.log(srchObj)
 
@@ -117,12 +120,13 @@ export class IndexDataService {
 
     searchNext(args: any): Promise<any> {
         let solrUrl = AppSettings.SOLR_SERVER_PATH + 'foodx/select';
-        let params = new HttpParams();
-        params.set('rows', '' + AppSettings.max_results);
-        params.set('start', '' + args['pagenum'] * AppSettings.max_results);
-        params.set('wt', 'json');
-        params.set('q', 'recipeTitle:' + args['term']);
-        params.set('json.wrf', 'JSONP_CALLBACK');
+        let params = {
+            'rows': '' + AppSettings.max_results
+            , 'start': '' + args['pagenum'] * AppSettings.max_results
+            , 'wt': 'json'
+            , 'q': 'recipeTitle:' + args['term']
+            , 'json.wrf': 'JSONP_CALLBACK'
+        }
 
         return this.http.get(solrUrl, { params: params })
             .pipe(map(jsonRes => {

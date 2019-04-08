@@ -9,16 +9,22 @@ exports.selectFromSolr = function (query) {
         };
         request(options, function (error, response, body) {
             var searchResult = '';
-            if (error) {
+            try {
+                if (error) {
+                    reject(new Error('Failed to load page, status code: ' + error.statusCode));
+                } else if (response && body) {
+                    resolve(JSON.parse(body));
+                }
+            } catch (error) {
                 reject(new Error('Failed to load page, status code: ' + error.statusCode));
-            } else if (response && body) {
-                resolve(JSON.parse(body));
             }
         });
     })
 }
 
 exports.suggestFromSolr = function (query) {
+    console.log("suggest query = ")
+    console.log(query);
     return new Promise((resolve, reject) => {
         let options = {
             url: constants.SOLR_URI + '/suggest',
@@ -26,10 +32,14 @@ exports.suggestFromSolr = function (query) {
         };
         request(options, function (error, response, body) {
             var searchResult = '';
-            if (error) {
+            try {
+                if (error) {
+                    reject(new Error('Failed to load page, status code: ' + error.statusCode));
+                } else if (response && body) {
+                    resolve(JSON.parse(body));
+                }
+            } catch (error) {
                 reject(new Error('Failed to load page, status code: ' + error.statusCode));
-            } else if (response && body) {
-                resolve(JSON.parse(body));
             }
         });
     })
@@ -59,9 +69,9 @@ exports.selectFromLocation = function (queryparam) {
         let lat = '18.15';
         let long = '83.85';
         let radius = '1000';
-        let query = '&q=*:*&fq={!geofilt%20sfield=geo_location}&pt='+queryparam.lat+','+queryparam.lan+'&d='+queryparam.rad+'&wt=json'; 
+        let query = '&q=*:*&fq={!geofilt%20sfield=geo_location}&pt=' + queryparam.lat + ',' + queryparam.lan + '&d=' + queryparam.rad + '&wt=json';
         // let query = '&q=video_id:[* TO *]&fq={!geofilt%20sfield=geo_location}&pt='+queryparam.lat+','+queryparam.lan+'&d='+queryparam.rad+'&wt=json';
-            
+
         let options = {
             url: constants.SOLR_LOC_URI + '/select?' + query,
             qs: query
